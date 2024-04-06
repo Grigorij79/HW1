@@ -1,19 +1,31 @@
 package org.example;
 
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
+
 public class Main {
     public static void main(String[] args) {
-        // Press Alt+Enter with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        Person person = new Person("Grigoriy", "Kovalenko");
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        String json = gson.toJson(person);
+        System.out.println(json);
+    }
+}
+class Person {
+    private String name;
+    private String lastName;
 
-        // Press Shift+F10 or click the green arrow button in the gutter to run the code.
-        for (int i = 1; i <= 5; i++) {
+    public Person(String name, String lastName) {
+        this.name = name;
+        this.lastName = lastName;
+    }
 
-            // Press Shift+F9 to start debugging your code. We have set one breakpoint
-            // for you, but you can always add more by pressing Ctrl+F8.
-            System.out.println("i = " + i);
-        }
+    public String getName() {
+        return name;
+    }
+
+    public String getLastName() {
+        return lastName;
     }
 }
